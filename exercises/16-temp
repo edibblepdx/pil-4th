@@ -1,0 +1,3 @@
+x = 4;
+print("temp print\n");
+print("temp print again\n");

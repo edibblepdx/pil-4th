@@ -2,7 +2,7 @@ Account = {balance = 0}
 
 -- create a new Account object 
 -- and set Account as it's metatable
--- Account:new (o) == Account.new(self, o)
+-- Account:new (o) == Account.new (self, o)
 function Account:new (o)
     o or {}
     self.__index = self

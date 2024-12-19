@@ -4,7 +4,7 @@ Account = {balance = 0}
 -- and set Account as it's metatable
 -- Account:new (o) == Account.new (self, o)
 function Account:new (o)
-    o or {}
+    o = o or {}
     self.__index = self
     setmetatable(o, self)
     return o

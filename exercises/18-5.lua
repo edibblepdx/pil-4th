@@ -1,10 +1,10 @@
 -- write a 'true iterator' that traverses
 -- all subsets of a given set
 
--- 2^n subsets not including the empty set
+-- 2^n subsets including the empty set
 -- can use a binary representation
 --> either it is in the subset or it is not
---> iterate from 0 to n_subsets
+--> iterate from 0 to n_subsets - 1
 --> each binary digit is in or out
 
 function allsubsets (t, f)

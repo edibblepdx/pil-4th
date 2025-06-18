@@ -2,10 +2,10 @@
 -- Recursive formula: C(n,m) = C(n-1,m-1)+C(n-1,m) to generate all C(n,m) combinations of n elements in groups of size m.
 
 --[[
- Return all combinations of n elements in groups of size m.
- -> table
- a: table
- m: number
+  Returns all combinations of n elements in groups of size m.
+  -> table
+  a: table
+  m: number
 --]]
 local function combinations(a, m)
   if (m or 0) == 0 then return { {} } end
@@ -38,3 +38,8 @@ end
 
 local t = combinations({ 1, 2, 3, 4, 5 }, 3)
 for _, v in ipairs(pretty(t)) do print(v) end
+--> {1,2,3}
+--> {1,2,4}
+--> {1,3,4}
+--> {2,3,4}
+--> {2,3,5}

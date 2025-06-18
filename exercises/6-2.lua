@@ -1,10 +1,15 @@
-function return_all_but_first (...)
-    a = table.pack(...)
-    b = {}
-    for i = 2, a.n do
-        b[i-1] = a[i]
-    end
-    return table.unpack(b, 1, a.n - 1)
+function return_all_but_first(...)
+  a = table.pack(...)
+  b = {}
+  for i = 2, a.n do
+    b[i - 1] = a[i]
+  end
+  return table.unpack(b, 1, a.n - 1)
+end
+
+function return_all_but_first(...)
+  a = table.pack(...)
+  return table.unpack(a, 2, a.n)
 end
 
 print(return_all_but_first("heehee", "haha", "hoohoo", "ha"))

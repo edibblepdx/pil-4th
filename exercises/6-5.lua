@@ -16,13 +16,13 @@ local function combinations(a, m)
 
   tail = { table.unpack(a, 2) } -- add the first element
   k = combinations(tail, m - 1) -- generate C(n-1,m-1) combinations of remaining elements
-  for i, tbl in ipairs(k) do
-    res[i] = { a[1], table.unpack(tbl) }
+  for _, tbl in ipairs(k) do
+    res[#res + 1] = { a[1], table.unpack(tbl) }
   end
 
   k = combinations(tail, m) -- generate C(n-1,m) combinations of remaining elements
-  for i, tbl in ipairs(k) do
-    res[#res + i] = { table.unpack(tbl) }
+  for _, tbl in ipairs(k) do
+    res[#res + 1] = tbl
   end
 
   return res
@@ -37,9 +37,14 @@ local function pretty(t)
 end
 
 local t = combinations({ 1, 2, 3, 4, 5 }, 3)
-for _, v in ipairs(pretty(t)) do print(v) end
---> {1,2,3}
---> {1,2,4}
---> {1,3,4}
---> {2,3,4}
---> {2,3,5}
+for i, v in ipairs(pretty(t)) do print(i, v) end
+--> 1   {1,2,3}
+--> 2   {1,2,4}
+--> 3   {1,2,5}
+--> 4   {1,3,4}
+--> 5   {1,3,5}
+--> 6   {1,4,5}
+--> 7   {2,3,4}
+--> 8   {2,3,5}
+--> 9   {2,4,5}
+--> 10  {3,4,5}

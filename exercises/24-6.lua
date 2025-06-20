@@ -9,7 +9,7 @@
 
 function main()
   coroutine.create("1", function(v)
-    for _ = 1, 5 do -- could run this forever
+    for _ = 1, 2 do -- could run this forever
       print(1, v)
       v = coroutine.transfer("2", "hello from 1")
     end
@@ -17,7 +17,7 @@ function main()
   end)
 
   coroutine.create("2", function(v)
-    for _ = 1, 5 do -- could run this forever
+    for _ = 1, 2 do -- could run this forever
       print(2, v)
       v = coroutine.transfer("1", "hello from 2")
     end
@@ -35,6 +35,14 @@ function main()
 
   print("main", coroutine.transfer("1", "hello from main"))
 end
+
+--> 1       hello from main
+--> 2       hello from 1
+--> 1       hello from 2
+--> 2       hello from 1
+--> 3       hello from 1
+--> 4       hello from 3
+--> main    hello from 4
 
 do
   local yield = coroutine.yield           -- store coroutine.yield

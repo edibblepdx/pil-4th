@@ -11,17 +11,17 @@ local function combinations(a, m)
   if (m or 0) == 0 then return { {} } end
   if m > #a then return {} end
 
-  local tail, k
+  local tail, cs
   local res = {}
 
-  tail = { table.unpack(a, 2) } -- add the first element
-  k = combinations(tail, m - 1) -- generate C(n-1,m-1) combinations of remaining elements
-  for _, tbl in ipairs(k) do
+  tail = { table.unpack(a, 2) }  -- add the first element
+  cs = combinations(tail, m - 1) -- generate C(n-1,m-1) combinations of remaining elements
+  for _, tbl in ipairs(cs) do
     res[#res + 1] = { a[1], table.unpack(tbl) }
   end
 
-  k = combinations(tail, m) -- generate C(n-1,m) combinations of remaining elements
-  for _, tbl in ipairs(k) do
+  cs = combinations(tail, m) -- generate C(n-1,m) combinations of remaining elements
+  for _, tbl in ipairs(cs) do
     res[#res + 1] = tbl
   end
 

@@ -35,3 +35,5 @@ function getvarvalue(name, level, isenv)
     return "noenv"
   end
 end
+
+local a = 4; print(getvarvalue("a", 2))

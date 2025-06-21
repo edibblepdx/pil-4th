@@ -1,5 +1,14 @@
 -- 25.1 Modify getvarvalue to work with difference coroutines
 
+--[[
+  Get the value of a varaible
+  -> string
+  2. any
+  co: thread|nil
+  name: string
+  level: number|nil
+  isenv: boolean|nil
+--]]
 function getvarvalue(co, name, level, isenv)
   local value
   local found = false
